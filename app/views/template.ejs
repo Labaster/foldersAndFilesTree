@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME</title>
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    |
+    <a href="/savePath">Save path to database</a>
+    |
+    <a href="/showPathTree">Show path tree</a>
+</nav>
+<hr>
+<H2><%- body %></H2>
+<hr>
+<H3 style="color:lightcoral;">Ознайомтесь з інструкцією по користуванню:</H3>
+<ol style="color:cornflowerblue;">
+    <li>В першу чергу необхідно виконати міграцію БД MySql nза допомогою скріпта "sudo npm run initDB /  sudo yarn run initDB";</li>
+    <li>
+        Якщо у вас стоїть пароль на БД:
+        <ul>
+            <li>Його необхідно вказати у файлі .env(знаходиться в корені проекту) поле DB_ROOT_PASS = "ваш пароль";</li>
+            <li>Пункт 3. пропустити!</li>
+        </ul>
+    </li>
+    <li>
+        Якщо пароль на БД відсутній:
+        <ul>
+            <li>Потрібно перейти в папку config/default.js та закоментувати поле - //"password": `${process.env.DB_ROOT_PASS}`;</li>
+            <li>Пункт 2. пропустити!</li>
+        </ul>
+    </li>
+    <li>
+        Щоб записати шлях до БД:
+        <ul>
+            <li>Потрібно перейти за посиланням <a href="/savePath">save path to database</a>;</li>
+            <li>У форму ввести шлях;</li>
+        </ul>
+    </li>
+    <li>
+        Вивести дерево папок та файлів:
+        <ul>
+            <li>Потрібно перейти за посиланням <a href="/showPathTree">show path tree</a>;</li>
+        </ul>
+    </li>
+</ol>
+<hr>
+</body>
+</html>

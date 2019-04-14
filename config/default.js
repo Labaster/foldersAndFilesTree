@@ -1,0 +1,1 @@
+require('dotenv').config();module.exports = {  "server": {    "db": {      "createConn": {        "host": "localhost",        "user": "root",        "password": `${process.env.DB_ROOT_PASS}`,        "database": "folders_and_files_tree"      }    }  },};

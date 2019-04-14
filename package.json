@@ -1,0 +1,25 @@
+{
+  "name": "foldersAndFilesTree",
+  "version": "1.0.0",
+  "description": "Folders And Files Tree",
+  "main": "index.js",
+  "author": "Denys Dziubenko",
+  "license": "MIT",
+  "scripts": {
+    "initDB": "mysql -u root -p < ./app/managers/initDb.sql",
+    "start": "nodemon ./app/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "config": "^3.1.0",
+    "dotenv": "^7.0.0",
+    "fs": "^0.0.1-security",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-ejs": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "mysql2": "1.6.4",
+    "nodemon": "^1.18.11",
+    "path": "^0.12.7"
+  }
+}
