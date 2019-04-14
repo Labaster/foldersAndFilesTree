@@ -1,23 +1,23 @@
-const { getFoldersAndFiles, showData } = require('../pathParser/path.js');
+const { getFoldersAndFiles, showData, clearDatabaseFields } = require('../pathWorker/pathWorker.js');
+const beautify = require("json-beautify");
 
 async function indexAction(ctx) {
-    const viewVariables = {
-        title: 'Привіт:)',
-    };
+    const viewVariables = {title: 'Привіт:)',};
     await ctx.render('main', viewVariables);
 }
 
 async function pathSuccessfullySavedAction(ctx) {
-    const viewVariables = {
-        title: 'A path successfully saved!'
-    };
+    const viewVariables = {title: 'A path successfully saved!'};
     await ctx.render('main', viewVariables);
 }
 
 async function errorAction(ctx) {
-    const viewVariables = {
-        title: 'Upssss, could not save path. Try again...'
-    };
+    const viewVariables = {title: 'Upssss, could not save path. Try again...'};
+    await ctx.render('main', viewVariables);
+}
+
+async function dbInformationAction(ctx) {
+    const viewVariables = {title: 'The database cleared'};
     await ctx.render('main', viewVariables);
 }
 
@@ -44,41 +44,22 @@ async function savePathAction(ctx) {
     ctx.redirect('/errorSaving');
 }
 
-async function getAllPathsAction(ctx) {
-    const data = await showData();
-    await console.log(data);
-    ctx.redirect('/');
+async function getPathAction(ctx) {
+    ctx.body = beautify(await showData(), null, 2, 100);
 }
-// async function saveTicketApiAction(ctx) {
-//     const newTicket = await ctx.query;
-//     apiManager.saveTicket(newTicket);
-//     ctx.body = "Data saved!";
-// }
-//
-// async function addTicket(ctx) {
-//     await ctx.render('addPath');
-// }
-//
-// async function getTicket(ctx) {
-//     const { id } = ctx.params;
-//     ctx.body = JSON.stringify(await apiManager.getPurchasedTickets(id));
-// }
-//
-// async function updateTicketApiAction(ctx) {
-//     const ticketShouldUpd = ctx.query;
-//     ctx.body = JSON.stringify(apiManager.updateTicket(ticketShouldUpd));
-// }
-//
-// async function deleteTicketApiAction(ctx) {
-//     const { id } = ctx.params;
-//     ctx.body = JSON.stringify(apiManager.deleteTicket(id));
-// }
+
+async function eraseDb(ctx) {
+    await clearDatabaseFields();
+    ctx.redirect('/dbCleared');
+}
 
 module.exports = {
     indexAction,
     pathSuccessfullySavedAction,
     errorAction,
+    dbInformationAction,
     pathAction,
     savePathAction,
-    getAllPathsAction,
+    getPathAction,
+    eraseDb,
 };

@@ -9,7 +9,7 @@ app.use(bodyParser());
 render(app, {
     root: path.join(__dirname, 'views'),
     layout: 'template',
-    viewExt: 'ejs',
+    viewExt: 'html',
 });
 
 app.use(routes);

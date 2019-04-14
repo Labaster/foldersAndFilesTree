@@ -31,10 +31,22 @@ async function saveFiles(params) {
     return await execute(sql, [params.file_name, params.folder_id]);
 }
 
+async function clearFoldersTable(params) {
+    const sql = `TRUNCATE folders_path_table`;
+    return await execute(sql, [params||null]);
+}
+
+async function clearFilesTable(params) {
+    const sql = `TRUNCATE file_name_table`;
+    return await execute(sql, [params||null]);
+}
+
 module.exports = {
     getIdByParams,
     saveFolders,
     saveFiles,
     getAllFolders,
     getAllFilesBiId,
+    clearFoldersTable,
+    clearFilesTable,
 };
