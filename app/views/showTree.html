@@ -1,1 +1,15 @@
-<%- data  %>
+<h3>Folders And Files Tree</h3>
+<hr>
+<ol style="color:#9b6400;">
+    <% _.forEach(foldersAndFiles, (files, folder) => { %>
+    <li>
+        <%- folder %>:
+        <% _.forEach(files, (file) => { %>
+            <ul>
+                <li style="color:#009b46;"> <%- file %>;</li>
+            </ul>
+        <% }) %>
+    </li>
+    <% }) %>
+</ol>
+

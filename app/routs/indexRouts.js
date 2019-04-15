@@ -1,7 +1,8 @@
 const router = require('koa-router')();
 const { indexAction, savePathAction, pathAction,
     pathSuccessfullySavedAction, errorAction,
-    getPathAction, eraseDb, dbInformationAction} = require('../controllers/indexController');
+    getPathAction, eraseDb, dbInformationAction,
+    getPathJsonAction, } = require('../controllers/indexController');
 
 router
     .get('/', indexAction)
@@ -9,6 +10,7 @@ router
     .get('/errorSaving', errorAction)
     .get('/dbCleared', dbInformationAction)
     .get('/showPathTree', getPathAction)
+    .get('/showJsonPathTree', getPathJsonAction)
     .get('/savePath', pathAction)
     .get('/eraseDb', eraseDb)
     .post('/api/savePath', savePathAction)

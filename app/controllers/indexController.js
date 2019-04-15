@@ -1,5 +1,6 @@
 const { getFoldersAndFiles, showData, clearDatabaseFields } = require('../pathWorker/pathWorker.js');
 const beautify = require("json-beautify");
+const _ = require('lodash');
 
 async function indexAction(ctx) {
     const viewVariables = {title: 'Привіт:)',};
@@ -45,6 +46,14 @@ async function savePathAction(ctx) {
 }
 
 async function getPathAction(ctx) {
+    const viewVariables = {
+        foldersAndFiles: await showData(),
+        _,
+    };
+    await ctx.render('showTree', viewVariables);
+}
+
+async function getPathJsonAction(ctx) {
     ctx.body = beautify(await showData(), null, 2, 100);
 }
 
@@ -61,5 +70,6 @@ module.exports = {
     pathAction,
     savePathAction,
     getPathAction,
+    getPathJsonAction,
     eraseDb,
 };

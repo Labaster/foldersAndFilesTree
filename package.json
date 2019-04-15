@@ -19,6 +19,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-ejs": "^4.2.0",
     "koa-router": "^7.4.0",
+    "lodash": "^4.17.11",
     "mysql2": "1.6.4",
     "nodemon": "^1.18.11",
     "path": "^0.12.7"
