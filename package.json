@@ -6,7 +6,7 @@
   "author": "Denys Dziubenko",
   "license": "MIT",
   "scripts": {
-    "initDB": "mysql -u root -p < ./app/managers/initDb.sql",
+    "initDB": "mysql -u root -p < ./app/managers/initDB.sql",
     "start": "nodemon ./app/index.js"
   },
   "dependencies": {
